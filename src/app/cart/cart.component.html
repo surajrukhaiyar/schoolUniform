@@ -1,0 +1,31 @@
+<div class="mainContainer">
+    <div class="productCard" *ngFor="let prouct of userCartProducts;">
+        <div class="img">
+          <img src={{prouct.img}} alt="">
+        </div>
+        <div class="details">
+          <div class="name">{{prouct.name}}</div>
+          <div class="price">₹{{prouct.price}}</div>
+  
+          <div class="qty" *ngIf="prouct.quantity!=0">
+            <button (click)="prouct.quantity=prouct.quantity-1">-</button>
+            <input type="number" value={{prouct.quantity}} min="0" class="qty">
+            <button (click)="prouct.quantity= prouct.quantity+1">+</button>
+          </div>
+          <div class="qtyCart" *ngIf="prouct.quantity==0">
+            <button (click)="prouct.quantity=1">
+                Add to<img src="assets/cart.jpg">
+            </button>
+         </div>
+  
+          <div class="description">
+              {{prouct.description}}
+          </div>
+        </div>
+    </div>
+
+    <div class="placeOrderContainer">
+      <button class="continueShopping">Continue Shoping</button>
+      <button class="placeOrder">Place Order</button>
+    </div>
+  </div>
